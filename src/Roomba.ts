@@ -41,13 +41,13 @@ export default class Roomba extends SDKObject {
         //this.roomba.transform.local.position = new Vector3(0,0,5);
         const velocity = 0.4;
         const duration = Math.abs(distance / velocity);
-        console.log("started moving1");
+        //console.log("started moving1");
         //this.roomba.targetingAnimationsByName.get("clean").play();
         //return;
         let targetPoint = new Vector3(0, 0, distance);
         targetPoint.rotateByQuaternionToRef(this.rotation, targetPoint);
         targetPoint = targetPoint.addInPlace(this.roomba.transform.app.position);
-        let prom = new Promise<void>((resolve, reject) => {
+        const prom = new Promise<void>((resolve, reject) => {
             this.roomba.animateTo({
                 transform: {
                     local: {
@@ -60,7 +60,7 @@ export default class Roomba extends SDKObject {
                 }
             }, duration, MRE.AnimationEaseCurves.Linear)
                 .then(() => {
-                    console.log("great, it finished");
+                    //console.log("great, it finished");
                     resolve();
                 });
         });
@@ -68,8 +68,8 @@ export default class Roomba extends SDKObject {
     }
 
     private sleep(ms: number) {
-		return new Promise(resolve => setTimeout(resolve, ms));
-	}
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
     private async stopMoving() {
         if (this.roomba) {
@@ -82,8 +82,8 @@ export default class Roomba extends SDKObject {
         await this.moveRoomba(-0.3);
         await this.sleep(100);
 
-        const theNewRotation = MRE.Quaternion.RotationYawPitchRoll(2*Math.random()*Math.PI,0,0);
-        console.log(theNewRotation.y);
+        const theNewRotation = MRE.Quaternion.RotationYawPitchRoll(2 * Math.random() * Math.PI, 0, 0);
+        //console.log(theNewRotation.y);
         MRE.Animation.AnimateTo(super.getContext(), this.roomba,
             {
                 destination: {//TODO change to random

@@ -1,12 +1,11 @@
 import * as MRE from '@microsoft/mixed-reality-extension-sdk';
-import { Animation, RigidBody } from '@microsoft/mixed-reality-extension-sdk';
 import Roomba from './Roomba';
 
 export default class LearningWorld {
 	private assets: MRE.AssetContainer;
 	constructor(private context: MRE.Context) {
 		this.assets = new MRE.AssetContainer(this.context);
-		
+
 		this.context.onStarted(() => {
 			this.started();
 			//this.testing();
@@ -15,7 +14,7 @@ export default class LearningWorld {
 
 	private started() {
 		const roomba = new Roomba(this.assets);
-		this.assets.context.onUserJoined( (user: MRE.User) =>
+		this.assets.context.onUserJoined((user: MRE.User) =>
 			roomba.onUserJoin(user)
 		);
 
@@ -42,26 +41,30 @@ export default class LearningWorld {
 		})*/
 	}
 
-	private testing(){
-		for (let i = 0; i<25;i++){
-			for (let j = 0; j<25;j++){
-				const ball = MRE.Actor.CreatePrimitive(this.assets,{
-					definition:{
-						shape:MRE.PrimitiveShape.Sphere,
-						dimensions:{x:0.1,y:0.1,z:0.1},
-						uSegments:10,
-						vSegments:10
+	private testing() {
+		for (let i = 0; i < 25; i++) {
+			for (let j = 0; j < 25; j++) {
+				const ball = MRE.Actor.CreatePrimitive(this.assets, {
+					definition: {
+						shape: MRE.PrimitiveShape.Sphere,
+						dimensions: { x: 0.1, y: 0.1, z: 0.1 },
+						uSegments: 10,
+						vSegments: 10
 					},
-					addCollider:true,
-					actor:{
-						transform:{local:{position:{
-							x:i/10 - 0.5,
-							y:0.5,
-							z:j/10
-						}}},
-						rigidBody:{
-							enabled:true,
-							useGravity:true
+					addCollider: true,
+					actor: {
+						transform: {
+							local: {
+								position: {
+									x: i / 10 - 0.5,
+									y: 0.5,
+									z: j / 10
+								}
+							}
+						},
+						rigidBody: {
+							enabled: true,
+							useGravity: true
 						}
 					}
 				})

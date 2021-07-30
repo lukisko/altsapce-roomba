@@ -40,14 +40,16 @@ class Sensor extends SDKObject_1.default {
             addCollider: true,
             actor: {
                 parentId: parentId,
-                transform: { local: {
+                transform: {
+                    local: {
                         position: {
                             x: position.x,
                             y: position.y * 0.7,
                             z: position.z
                         },
                         rotation: rotation
-                    } },
+                    }
+                },
                 appearance: {
                     enabled: testing
                 },
@@ -70,7 +72,7 @@ class Sensor extends SDKObject_1.default {
         this.sensorActor.subscribe("rigidbody");
         this.sensorActor.subscribe("collider");
         this.sensorActor.collider.onTrigger("trigger-enter", () => {
-            console.log("trigger-enter");
+            //console.log("trigger-enter");
             this.onTriger++;
         });
         this.sensorActor.collider.onTrigger("trigger-exit", () => {
@@ -78,7 +80,7 @@ class Sensor extends SDKObject_1.default {
             if (this.isOnTriger()) {
                 this.callAfterHit();
             }
-            console.log("trigger-exit");
+            //console.log("trigger-exit");
         });
         this.makeBoundary(position, parentId);
         for (let i = 0; i < 1; i++) {
@@ -92,8 +94,10 @@ class Sensor extends SDKObject_1.default {
                 addCollider: true,
                 actor: {
                     transform: { local: { position: { x: 0, y: 0.04, z: 0.33 + i * 0.1 } } },
-                    rigidBody: { enabled: true,
-                        useGravity: true },
+                    rigidBody: {
+                        enabled: true,
+                        useGravity: true
+                    },
                     appearance: {
                         enabled: testing
                     }

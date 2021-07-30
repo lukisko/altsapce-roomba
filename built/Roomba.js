@@ -56,13 +56,13 @@ class Roomba extends SDKObject_1.default {
         //this.roomba.transform.local.position = new Vector3(0,0,5);
         const velocity = 0.4;
         const duration = Math.abs(distance / velocity);
-        console.log("started moving1");
+        //console.log("started moving1");
         //this.roomba.targetingAnimationsByName.get("clean").play();
         //return;
         let targetPoint = new mixed_reality_extension_sdk_1.Vector3(0, 0, distance);
         targetPoint.rotateByQuaternionToRef(this.rotation, targetPoint);
         targetPoint = targetPoint.addInPlace(this.roomba.transform.app.position);
-        let prom = new Promise((resolve, reject) => {
+        const prom = new Promise((resolve, reject) => {
             this.roomba.animateTo({
                 transform: {
                     local: {
@@ -75,7 +75,7 @@ class Roomba extends SDKObject_1.default {
                 }
             }, duration, MRE.AnimationEaseCurves.Linear)
                 .then(() => {
-                console.log("great, it finished");
+                //console.log("great, it finished");
                 resolve();
             });
         });
@@ -95,7 +95,7 @@ class Roomba extends SDKObject_1.default {
         await this.moveRoomba(-0.3);
         await this.sleep(100);
         const theNewRotation = MRE.Quaternion.RotationYawPitchRoll(2 * Math.random() * Math.PI, 0, 0);
-        console.log(theNewRotation.y);
+        //console.log(theNewRotation.y);
         MRE.Animation.AnimateTo(super.getContext(), this.roomba, {
             destination: {
                 transform: { app: { rotation: theNewRotation } }

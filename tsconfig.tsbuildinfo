@@ -1182,22 +1182,22 @@
         "affectsGlobalScope": false
       },
       "./src/sdkobject.ts": {
-        "version": "d8241b9d7486f35705ad1f5f203212658e0697c6479c1a0a5960de49716eba10",
+        "version": "2b149d162588fbf28f68bb745c15667a06aa2d0af07231792832b2390233f39d",
         "signature": "356ed7e62283be5eca906456741a1c27171ae8ec613fbda86124ac9a29de2990",
         "affectsGlobalScope": false
       },
       "./src/sensor.ts": {
-        "version": "c71f935b3b9088a1abf178414248fca241d68caa8cede72e39250274a2382e93",
+        "version": "6a101d69e7fc6ed28c3be177662dcf45f468ca7b877e47d2fc3326d20f589c9f",
         "signature": "c04e5ef50bdb32037073a81fdef646fb3b8f8e91222e65d1b8563c7ce5ddcd60",
         "affectsGlobalScope": false
       },
       "./src/roomba.ts": {
-        "version": "d88f81c8ffd63ef9bfdc18360cc49de323b956c989fba4aa55d17846bdbc8230",
+        "version": "84f7850661f33f8c933307b8cea8cc563fa050f64fdd6f34d6d761b08f4b4911",
         "signature": "a9b347e40e095f189a165bad558a3ad678f28b4202870495e8640f37c25d1504",
         "affectsGlobalScope": false
       },
       "./src/app.ts": {
-        "version": "2c2306e993bb5f2ce31e106a78443d533c34899c1aed0a60a896da994133bb06",
+        "version": "cb70e7be32f7f878d3c85773a22a5b7120e04610339f86240c06cd966e193653",
         "signature": "7f2fd447f8b31f475eaabbd5129da6b97679fee055b5a385c743cb9b225bb5a4",
         "affectsGlobalScope": false
       },
@@ -1299,8 +1299,6 @@
       "strictNullChecks": false,
       "moduleResolution": 2,
       "esModuleInterop": true,
-      "watch": true,
-      "preserveWatchOutput": true,
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {

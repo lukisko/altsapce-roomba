@@ -1,9 +1,9 @@
 import * as MRE from '@microsoft/mixed-reality-extension-sdk';
 
-export default abstract class SDKObject{
+export default abstract class SDKObject {
     private assets: MRE.AssetContainer;
-    
-    public constructor(assets: MRE.AssetContainer){
+
+    public constructor(assets: MRE.AssetContainer) {
         this.assets = assets;
     }
 
@@ -15,11 +15,11 @@ export default abstract class SDKObject{
         return this.assets.context;
     }
 
-    public updateButtons(): void{
+    public updateButtons(): void {
         //to be overwriten
     }
 
-    public welcomeUser(user: MRE.User):void{
+    public welcomeUser(user: MRE.User): void {
         //to be overwriten;
     }
 
@@ -27,5 +27,5 @@ export default abstract class SDKObject{
         this.updateButtons();
         this.welcomeUser(user);
     }
-    
+
 }

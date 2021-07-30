@@ -70,11 +70,15 @@ class LearningWorld {
                     },
                     addCollider: true,
                     actor: {
-                        transform: { local: { position: {
+                        transform: {
+                            local: {
+                                position: {
                                     x: i / 10 - 0.5,
                                     y: 0.5,
                                     z: j / 10
-                                } } },
+                                }
+                            }
+                        },
                         rigidBody: {
                             enabled: true,
                             useGravity: true
