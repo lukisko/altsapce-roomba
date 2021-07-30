@@ -1,7 +1,7 @@
 import * as MRE from '@microsoft/mixed-reality-extension-sdk';
 import SDKObject from './SDKObject';
 
-const testing = false; //just to show the sensor if testing/ debuging
+const testing = true; //just to show the sensor if testing/ debuging
 
 export default class Sensor extends SDKObject {
     private sensorActor: MRE.Actor;
