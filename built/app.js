@@ -61,7 +61,7 @@ class LearningWorld {
     testing() {
         for (let i = 0; i < 25; i++) {
             for (let j = 0; j < 25; j++) {
-                const ball = MRE.Actor.CreatePrimitive(this.assets, {
+                MRE.Actor.CreatePrimitive(this.assets, {
                     definition: {
                         shape: MRE.PrimitiveShape.Sphere,
                         dimensions: { x: 0.1, y: 0.1, z: 0.1 },

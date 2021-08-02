@@ -1182,22 +1182,22 @@
         "affectsGlobalScope": false
       },
       "./src/sdkobject.ts": {
-        "version": "2b149d162588fbf28f68bb745c15667a06aa2d0af07231792832b2390233f39d",
+        "version": "53c7f8cc0140ac5ae37ca0f30fc2bd05b91ab50c0342084517658cad6ce29631",
         "signature": "356ed7e62283be5eca906456741a1c27171ae8ec613fbda86124ac9a29de2990",
         "affectsGlobalScope": false
       },
       "./src/sensor.ts": {
-        "version": "d1e35f42fb3e9cb697c1d5e7b9f925118df7804f126b533f46b05b75cc19aac3",
-        "signature": "c04e5ef50bdb32037073a81fdef646fb3b8f8e91222e65d1b8563c7ce5ddcd60",
+        "version": "68c13360f747e036c35408319726489eb4ca062adf718684e409f29e4ec24267",
+        "signature": "96a45c42936d39bf8d276b1dd54bdb24446d8d0a6fef9a21b229e49d320792e1",
         "affectsGlobalScope": false
       },
       "./src/roomba.ts": {
-        "version": "84f7850661f33f8c933307b8cea8cc563fa050f64fdd6f34d6d761b08f4b4911",
-        "signature": "a9b347e40e095f189a165bad558a3ad678f28b4202870495e8640f37c25d1504",
+        "version": "7c21c89e79e3b2b1bef2d4cf9d39525f0c08115e68361c87e932b956f5e14dc7",
+        "signature": "470ec96065b415bcc55886e391163737607cb4bca56fb5c36e3ea94206a0ce52",
         "affectsGlobalScope": false
       },
       "./src/app.ts": {
-        "version": "cb70e7be32f7f878d3c85773a22a5b7120e04610339f86240c06cd966e193653",
+        "version": "f4d54207b35b1b24be24c45c9e0409405ed9b6406421b1c61f890dff1fda8d94",
         "signature": "7f2fd447f8b31f475eaabbd5129da6b97679fee055b5a385c743cb9b225bb5a4",
         "affectsGlobalScope": false
       },

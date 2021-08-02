@@ -29,6 +29,7 @@ const Sensor_1 = __importDefault(require("./Sensor"));
 class Roomba extends SDKObject_1.default {
     constructor(assets) {
         super(assets);
+        this.isOn = true;
         this.rotation = MRE.Quaternion.FromEulerAngles(0, 0, 0);
         this.createRoomba();
         this.createSensors(this.roomba);
@@ -51,6 +52,26 @@ class Roomba extends SDKObject_1.default {
         this.roomba.subscribe("transform");
         //this.roomba.collider.layer = MRE.CollisionLayer.Navigation
         //this.createSensors(this.roomba);
+    }
+    makeRoombaButton() {
+        const roombaButton = this.roomba.setBehavior(MRE.ButtonBehavior);
+        roombaButton.onClick(() => {
+            if (this.isOn) {
+                if (this.roomba) {
+                    this.roomba.targetingAnimations.forEach((value) => {
+                        value.stop();
+                    });
+                }
+                this.isOn = false;
+            }
+            else {
+                this.isOn = true;
+                this.moveRoomba(50);
+            }
+        });
+    }
+    updateButtons() {
+        this.makeRoombaButton();
     }
     moveRoomba(distance) {
         //this.roomba.transform.local.position = new Vector3(0,0,5);
@@ -94,7 +115,11 @@ class Roomba extends SDKObject_1.default {
         //console.log(this.roomba.transform.app.position.z);
         await this.moveRoomba(-0.3);
         await this.sleep(100);
-        const theNewRotation = MRE.Quaternion.RotationYawPitchRoll(2 * Math.random() * Math.PI, 0, 0);
+        //const theNewRotation = MRE.Quaternion.RotationYawPitchRoll(2 * Math.random() * Math.PI, 0, 0);
+        const randomSide = (Math.round(Math.random() * 2) % 2 - 0.5) * 2; //-1 or +1
+        const theNewRotation = MRE.Quaternion.FromEulerAngles(0, this.rotation.toEulerAngles().y + randomSide * (((1 / 2) * Math.random() + 0.25) * Math.PI), 0);
+        //const randomQuat = randomSide*(Math.random()/2 + 0.5) + this.rotation.y;
+        //const theNewRotation = new MRE.Quaternion(0,randomQuat * randomSide,0);
         //console.log(theNewRotation.y);
         MRE.Animation.AnimateTo(super.getContext(), this.roomba, {
             destination: {
@@ -123,11 +148,8 @@ class Roomba extends SDKObject_1.default {
         });
         this.frontSensor.setActionOnHit(this.stopMoving.bind(this));
     }
-    updateButtons() {
-        //throw new Error('Method not implemented.');
-    }
     welcomeUser(user) {
-        //throw new Error('Method not implemented.');
+        //just because it has to be overwriten/defined.
     }
 }
 exports.default = Roomba;

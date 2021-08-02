@@ -6,9 +6,8 @@ export default class Sensor extends SDKObject {
     private onTriger;
     constructor(assets: MRE.AssetContainer, position: MRE.Vector3Like, size: MRE.Vector3Like, parent: MRE.Actor, rotation: MRE.QuaternionLike);
     makeSensor(position: MRE.Vector3Like, size: MRE.Vector3Like, parentId: MRE.Guid, rotation: MRE.QuaternionLike): void;
+    private makeTestingBoundary;
     private makeBoundary;
-    startScaning(): void;
-    stopScaning(): void;
     setActionOnHit(functi: () => void): void;
     isOnTriger(): boolean;
     updateButtons(): void;

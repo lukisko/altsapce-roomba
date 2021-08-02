@@ -24,7 +24,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const MRE = __importStar(require("@microsoft/mixed-reality-extension-sdk"));
 const SDKObject_1 = __importDefault(require("./SDKObject"));
-const testing = true; //just to show the sensor if testing/ debuging
+const testing = false; //just to show the sensor if testing/ debuging
 class Sensor extends SDKObject_1.default {
     constructor(assets, position, size, parent, rotation) {
         super(assets);
@@ -93,7 +93,7 @@ class Sensor extends SDKObject_1.default {
                 },
                 addCollider: true,
                 actor: {
-                    transform: { local: { position: { x: 0, y: 0.04, z: 0.33 + i * 0.1 } } },
+                    transform: { local: { position: { x: 0, y: 0.04, z: 0.33 } } },
                     rigidBody: {
                         enabled: true,
                         useGravity: true
@@ -105,9 +105,28 @@ class Sensor extends SDKObject_1.default {
             });
         }
     }
+    makeTestingBoundary(position, parentId) {
+        MRE.Actor.CreatePrimitive(super.getAssets(), {
+            definition: {
+                shape: MRE.PrimitiveShape.Sphere,
+                dimensions: {
+                    x: 0.6, y: 0.6, z: 0.6
+                },
+            },
+            addCollider: true,
+            actor: {
+                parentId: parentId,
+                transform: { local: { position: { x: 0, y: 0.12, z: 0.75 } } },
+                appearance: {
+                    enabled: true
+                }
+            }
+        });
+    }
     makeBoundary(position, parentId) {
         const width = 0.48;
         const heightRatio = 2.2;
+        //side
         MRE.Actor.CreatePrimitive(super.getAssets(), {
             definition: {
                 shape: MRE.PrimitiveShape.Cylinder,
@@ -124,6 +143,7 @@ class Sensor extends SDKObject_1.default {
                 }
             }
         });
+        //other side
         MRE.Actor.CreatePrimitive(super.getAssets(), {
             definition: {
                 shape: MRE.PrimitiveShape.Cylinder,
@@ -140,6 +160,7 @@ class Sensor extends SDKObject_1.default {
                 }
             }
         });
+        //front
         MRE.Actor.CreatePrimitive(super.getAssets(), {
             definition: {
                 shape: MRE.PrimitiveShape.Cylinder,
@@ -149,17 +170,30 @@ class Sensor extends SDKObject_1.default {
             actor: {
                 parentId: parentId,
                 transform: {
-                    local: { position: { x: 0, y: position.y * heightRatio * 1.5, z: 1 } }
+                    local: { position: { x: 0, y: position.y * heightRatio * 1.2, z: 1 } }
                 },
                 appearance: {
                     enabled: testing
                 }
             }
         });
-    }
-    startScaning() {
-    }
-    stopScaning() {
+        //bottom
+        MRE.Actor.CreatePrimitive(super.getAssets(), {
+            definition: {
+                shape: MRE.PrimitiveShape.Cylinder,
+                dimensions: { x: 0.2, y: 0.02, z: 0.02 },
+            },
+            addCollider: true,
+            actor: {
+                parentId: parentId,
+                transform: {
+                    local: { position: { x: 0, y: position.y * -0.1, z: 0.8 } }
+                },
+                appearance: {
+                    enabled: testing
+                }
+            }
+        });
     }
     setActionOnHit(functi) {
         this.callAfterHit = functi;

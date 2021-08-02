@@ -5,13 +5,15 @@ export default class Roomba extends SDKObject {
     private frontSensor;
     private moveFrames;
     private rotation;
+    private isOn;
     constructor(assets: MRE.AssetContainer);
     private createRoomba;
+    private makeRoombaButton;
+    updateButtons(): void;
     private moveRoomba;
     private sleep;
     private stopMoving;
     private createSensors;
-    updateButtons(): void;
     welcomeUser(user: MRE.User): void;
 }
 //# sourceMappingURL=Roomba.d.ts.map
