@@ -64,6 +64,12 @@ export default class Sensor extends SDKObject {
 			if (this.isOnTriger()) {
 				this.callAfterHit();
 			}
+			setTimeout(()=>{
+				if (this.isOnTriger()){
+					//add something that will recreate the ball
+					//console.log("I missed my ball.")
+				}
+			},500);
 			//console.log("trigger-exit");
 		});
 
@@ -73,12 +79,13 @@ export default class Sensor extends SDKObject {
 				definition: {
 					shape: MRE.PrimitiveShape.Sphere,
 					dimensions: {
-						x: 0.2, y: 0.2, z: 0.2
+						x: 0.5, y: 0.5, z: 0.5
 					},
 				},
 				addCollider: true,
 				actor: {
-					transform: { local: { position: { x: 0, y: 0.04, z: 0.33 } } },
+					parentId:parentId,
+					transform: { local: { position: { x: 0, y: 0.8, z: 0.8 } } },
 					rigidBody: {
 						enabled: true,
 						useGravity: true
@@ -89,25 +96,6 @@ export default class Sensor extends SDKObject {
 				}
 			});
 		}
-	}
-
-	private makeTestingBoundary(position: MRE.Vector3Like, parentId: MRE.Guid) {
-		MRE.Actor.CreatePrimitive(super.getAssets(), {
-			definition: {
-				shape: MRE.PrimitiveShape.Sphere,
-				dimensions: {
-					x: 0.6, y: 0.6, z: 0.6
-				},
-			},
-			addCollider: true,
-			actor: {
-				parentId: parentId,
-				transform: { local: { position: { x: 0, y: 0.12, z: 0.75 } } },
-				appearance: {
-					enabled: true
-				}
-			}
-		});
 	}
 
 	private makeBoundary(position: MRE.Vector3Like, parentId: MRE.Guid) {
@@ -123,7 +111,7 @@ export default class Sensor extends SDKObject {
 			actor: {
 				parentId: parentId,
 				transform: {
-					local: { position: { x: width / 2, y: position.y * heightRatio * 1.2, z: 0.8 } }
+					local: { position: { x: width / 2, y: position.y * heightRatio * 1.35, z: 0.8 } }
 				},
 				appearance: {
 					enabled: testing
@@ -140,7 +128,7 @@ export default class Sensor extends SDKObject {
 			actor: {
 				parentId: parentId,
 				transform: {
-					local: { position: { x: - width / 2, y: position.y * heightRatio * 1.2, z: 0.8 } }
+					local: { position: { x: - width / 2, y: position.y * heightRatio * 1.35, z: 0.8 } }
 				},
 				appearance: {
 					enabled: testing
@@ -157,7 +145,7 @@ export default class Sensor extends SDKObject {
 			actor: {
 				parentId: parentId,
 				transform: {
-					local: { position: { x: 0, y: position.y * heightRatio * 1.2, z: 1 } }
+					local: { position: { x: 0, y: position.y * heightRatio * 1.4, z: 1 } }
 				},
 				appearance: {
 					enabled: testing

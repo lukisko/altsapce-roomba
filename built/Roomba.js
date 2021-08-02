@@ -75,7 +75,7 @@ class Roomba extends SDKObject_1.default {
     }
     moveRoomba(distance) {
         //this.roomba.transform.local.position = new Vector3(0,0,5);
-        const velocity = 0.4;
+        const velocity = 0.55;
         const duration = Math.abs(distance / velocity);
         //console.log("started moving1");
         //this.roomba.targetingAnimationsByName.get("clean").play();
