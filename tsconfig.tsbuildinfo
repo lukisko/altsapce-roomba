@@ -1187,7 +1187,7 @@
         "affectsGlobalScope": false
       },
       "./src/sensor.ts": {
-        "version": "6a101d69e7fc6ed28c3be177662dcf45f468ca7b877e47d2fc3326d20f589c9f",
+        "version": "d1e35f42fb3e9cb697c1d5e7b9f925118df7804f126b533f46b05b75cc19aac3",
         "signature": "c04e5ef50bdb32037073a81fdef646fb3b8f8e91222e65d1b8563c7ce5ddcd60",
         "affectsGlobalScope": false
       },

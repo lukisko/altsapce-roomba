@@ -24,7 +24,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const MRE = __importStar(require("@microsoft/mixed-reality-extension-sdk"));
 const SDKObject_1 = __importDefault(require("./SDKObject"));
-const testing = false; //just to show the sensor if testing/ debuging
+const testing = true; //just to show the sensor if testing/ debuging
 class Sensor extends SDKObject_1.default {
     constructor(assets, position, size, parent, rotation) {
         super(assets);
