@@ -83,34 +83,37 @@ class Sensor extends SDKObject_1.default {
             setTimeout(() => {
                 if (this.isOnTriger()) {
                     //add something that will recreate the ball
-                    //console.log("I missed my ball.")
+                    //console.log("I missed my ball.");
+                    this.theBall.destroy();
+                    this.makeTheBall(parentId);
                 }
             }, 500);
             //console.log("trigger-exit");
         });
         this.makeBoundary(position, parentId);
-        for (let i = 0; i < 1; i++) {
-            MRE.Actor.CreatePrimitive(super.getAssets(), {
-                definition: {
-                    shape: MRE.PrimitiveShape.Sphere,
-                    dimensions: {
-                        x: 0.5, y: 0.5, z: 0.5
-                    },
+        this.makeTheBall(parentId);
+    }
+    makeTheBall(parentId) {
+        this.theBall = MRE.Actor.CreatePrimitive(super.getAssets(), {
+            definition: {
+                shape: MRE.PrimitiveShape.Sphere,
+                dimensions: {
+                    x: 0.5, y: 0.5, z: 0.5
                 },
-                addCollider: true,
-                actor: {
-                    parentId: parentId,
-                    transform: { local: { position: { x: 0, y: 0.8, z: 0.8 } } },
-                    rigidBody: {
-                        enabled: true,
-                        useGravity: true
-                    },
-                    appearance: {
-                        enabled: testing
-                    }
+            },
+            addCollider: true,
+            actor: {
+                parentId: parentId,
+                transform: { local: { position: { x: 0, y: 0.8, z: 0.8 } } },
+                rigidBody: {
+                    enabled: true,
+                    useGravity: true
+                },
+                appearance: {
+                    enabled: testing
                 }
-            });
-        }
+            }
+        });
     }
     makeBoundary(position, parentId) {
         const width = 0.48;
